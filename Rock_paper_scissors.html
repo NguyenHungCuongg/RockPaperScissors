@@ -44,11 +44,15 @@
         </button>
 
         <script>
+
             const score = JSON.parse(localStorage.getItem('score')) || {
                     wins : 0,
                     losses : 0,
                     ties: 0
                 };
+            score.losses = 0; 
+            score.ties = 0; 
+            score.wins = 0;
 
             console.log(score);
 
