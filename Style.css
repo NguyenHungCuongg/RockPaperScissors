@@ -1,0 +1,95 @@
+body
+{
+    background-color:rgb(28, 28, 28);
+    color: rgb(255, 249, 242);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Headline
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
+.Rock_button
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px ;
+    background-color: transparent;
+    border-style: solid;
+    border-color: rgb(255, 184, 20);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.Rock_button:hover
+{
+    border-color: rgb(255, 255, 255);
+}
+.rock_emoji
+{
+    height: 50%;
+}
+.Paper_button
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px ;
+    background-color: transparent;
+    border-style: solid;
+    border-color: rgb(255, 184, 20);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.Paper_button:hover
+{
+    border-color: rgb(255, 255, 255);
+}
+.paper_emoji
+{
+    height: 50%;
+}
+.Scissors_button
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px ;
+    background-color: transparent;
+    border-style: solid;
+    border-color: rgb(255, 184, 20);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.Scissors_button:hover
+{
+    border-color: rgb(255, 255, 255);
+}
+.scissors_emoji
+{
+    height: 50%;
+}
+.Reset_button
+{
+    width: 200px;
+    height: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
+    border-style: solid;
+    background-color:rgb(255, 184, 20) ;
+    display: block;
+    margin-top: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.Reset_button:hover
+{
+    background-color:rgb(197, 144, 21) ;
+}
+
+.Result
+{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 184, 20);
+}
+

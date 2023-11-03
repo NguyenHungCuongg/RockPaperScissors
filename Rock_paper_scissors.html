@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Rock Paper Scissors </title>
+        <link rel="stylesheet" href="Style.css" >
+    </head>
+    <body>
+        <p class="Headline">
+            CHOOSE YOUR MOVE!
+        </p>
+        <button
+            class="Rock_button"
+            onclick = "game_play('Rock');"> 
+            <img class="rock_emoji" src="rock-emoji.webp"> 
+        </button>
+        <button
+            class="Paper_button"
+            onclick = "game_play('Paper')">
+            <img class="paper_emoji" src="paper-emoji.webp">
+        </button>
+        <button
+            class="Scissors_button" 
+            onclick = "game_play('Scissors')">
+            <img class="scissors_emoji" src="scissors-emoji.webp">
+        </button>
+
+        <p class="Move"> </p>
+        <p class="Result"> </p>
+        <p class="Score"> </p>
+
+        <button
+            class="Reset_button"
+            onclick = "
+                score.losses = 0; 
+                score.ties = 0; 
+                score.wins = 0;
+                result=' ';
+                computer_move = ' ';
+                player_move =' ';
+                show_move();
+                show_score(); 
+                ">
+            Reset Score 
+        </button>
+
+        <script>
+            const score = JSON.parse(localStorage.getItem('score')) || {
+                    wins : 0,
+                    losses : 0,
+                    ties: 0
+                };
+
+            console.log(score);
+
+            let computer_choose='';
+            let random = 0;
+            function computer()
+            {
+                random = Math.floor(Math.random()*4);
+                if (random === 1 )
+                {
+                    return 'Rock';
+                }
+                else if (random ===2)
+                {
+                    return 'Paper';
+                }
+                else 
+                {
+                    return 'Scissors';
+                }
+            }
+            let result = '';
+            let player_move = 0;
+            function game_play (player_move)
+            {   
+                
+                const computer_move = computer();
+                if (player_move ==='Rock')
+                {
+                    if (computer_move === 'Rock') {result = 'Tie';}
+                    else if (computer_move==='Paper') {result='lose';}
+                    else {result='win';}
+                }
+
+                if (player_move ==='Paper')
+                {
+                    if (computer_move === 'Rock') {result = 'win';}
+                    else if (computer_move==='Paper') {result='Tie';}
+                    else {result='lose';}
+                }
+
+                if (player_move ==='Scissors')
+                {
+                    if (computer_move === 'Rock') {result = 'lose';}
+                    else if (computer_move==='Paper') {result='win';}
+                    else {result='Tie';}
+                }
+
+                if (result === 'win') {score.wins += 1}
+                else if (result === 'lose') {score.losses += 1}
+                else {score.ties += 1}
+
+                localStorage.setItem ('score' ,JSON.stringify(score))
+
+
+                show_move(player_move, computer_move);
+                show_score();
+                show_result();
+
+            }
+
+            function show_move(x,y)
+            {
+                if (x===undefined || y===undefined)
+                {
+                document.querySelector('.Move')
+                .innerHTML =`You haven't picked yet! `
+                }
+                else
+                {
+                document.querySelector('.Move')
+                .innerHTML =`You picked: ${x}, 
+                Computer picked: ${y}`
+                }
+            }
+
+            function show_score()
+            {
+                document.querySelector('.Score')
+                .innerHTML=`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
+                show_result();
+            }
+
+            function show_result()
+            {
+                if (result=== ' ' )
+                {
+                    document.querySelector('.Result')
+                    .innerHTML = `Result: `
+                } 
+                else if (result ==='Tie')
+                {
+                    document.querySelector('.Result')
+                    .innerHTML = `Result: ${result} !`
+                }
+                else
+                {
+                    document.querySelector('.Result')
+                    .innerHTML = `Result: You ${result} !`
+                }
+            }
+
+        </script>
+    </body>
+</html>
